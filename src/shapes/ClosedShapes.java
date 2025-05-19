@@ -1,6 +1,6 @@
 package shapes;
 
-public interface closedShapes {
+public interface ClosedShapes {
     public int area();
     public int perimeter();
 }

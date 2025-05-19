@@ -1,6 +1,6 @@
 package shapes;
 
-public class Rectangle implements closedShapes{
+public class Rectangle implements ClosedShapes {
 
     private final int length;
     private final int width;
