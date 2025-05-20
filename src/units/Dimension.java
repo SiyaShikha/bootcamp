@@ -3,10 +3,10 @@ package units;
 import java.util.Objects;
 
 public class Dimension {
-    private final double value;
+    private final double baseValue;
 
     private Dimension(double baseValue) {
-        this.value = baseValue;
+        this.baseValue = baseValue;
     }
 
     static Dimension createInch(double value) {
@@ -36,11 +36,15 @@ public class Dimension {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Dimension that = (Dimension) o;
-        return Double.compare(value, that.value) == 0;
+        return Double.compare(baseValue, that.baseValue) == 0;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(value);
+        return Objects.hashCode(baseValue);
+    }
+
+    public Dimension add(Dimension other) {
+        return new Dimension(this.baseValue + other.baseValue);
     }
 }

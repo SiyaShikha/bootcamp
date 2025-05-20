@@ -30,4 +30,19 @@ class DimensionsTest {
         Dimension twentyFiveMillimeter = Dimension.createMillimeter(25);
         assert (oneInch.equals(twentyFiveMillimeter));
     }
+
+    @Test
+    void addInches() {
+        Dimension oneInch = Dimension.createInch(1);
+        Dimension sum = oneInch.add(oneInch);
+        assert (sum.equals(Dimension.createInch(2)));
+    }
+
+    @Test
+    void addInchesToCentimeters() {
+        Dimension oneInch = Dimension.createInch(1);
+        Dimension twoAndHalfCentimeters = Dimension.createCentimeter(2.5);
+        Dimension sum = oneInch.add(twoAndHalfCentimeters);
+        assert (sum.equals(Dimension.createInch(2)));
+    }
 }
