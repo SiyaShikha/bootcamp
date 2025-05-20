@@ -10,26 +10,22 @@ public class Dimension {
     }
 
     static Dimension createInch(double value) {
-        double baseValue = toMillimeter(value, 25);
-        return new Dimension(baseValue);
-    }
-
-    private static double toMillimeter(double value, double unitValue) {
-        return value * unitValue;
+        return new Dimension(value);
     }
 
     static Dimension createFeet(double value) {
-        double baseValue = toMillimeter(value, 300);
+        double baseValue = Unit.FEET.convert(value);
         return new Dimension(baseValue);
     }
 
     static Dimension createCentimeter(double value) {
-        double baseValue = toMillimeter(value, 10);
+        double baseValue = Unit.CENTIMETER.convert(value);
         return new Dimension(baseValue);
     }
 
     static Dimension createMillimeter(double value) {
-        return new Dimension(value);
+        double baseValue = Unit.MILLIMETER.convert(value);
+        return new Dimension(baseValue);
     }
 
     @Override
