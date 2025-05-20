@@ -1,19 +1,26 @@
 package units;
+
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 
 class DimensionsTest {
     @Test
     void compareInchAndFeet() {
-        Dimensions inch = Dimensions.createInch(12);
-        Dimensions feet = Dimensions.createFeet(1);
+        Dimension inch = Dimension.createInch(12);
+        Dimension feet = Dimension.createFeet(1);
         assert (inch.equals(feet));
     }
 
     @Test
     void compareInchAndCentimeter() {
-        Dimensions inch = Dimensions.createInch(2);
-        Dimensions centimeter = Dimensions.createCentimeter(5);
+        Dimension inch = Dimension.createInch(2);
+        Dimension centimeter = Dimension.createCentimeter(5);
         assert (inch.equals(centimeter));
+    }
+
+    @Test
+    void compareCentimeterAndMillimeter() {
+        Dimension centimeter = Dimension.createCentimeter(1);
+        Dimension millimeter = Dimension.createMillimeter(10);
+        assert (centimeter.equals(millimeter));
     }
 }
