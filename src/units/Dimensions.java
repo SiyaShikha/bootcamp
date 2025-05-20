@@ -19,6 +19,15 @@ public class Dimensions {
         return new Dimensions(baseValue);
     }
 
+    static Dimensions createCentimeter(double value) {
+        return new Dimensions(value);
+    }
+
+    static Dimensions millimeter(double value) {
+        double baseValue = value / 10;
+        return new Dimensions(baseValue);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
