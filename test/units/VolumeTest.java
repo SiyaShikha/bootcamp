@@ -1,4 +1,5 @@
 package units;
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -6,12 +7,19 @@ import static org.junit.jupiter.api.Assertions.*;
 class VolumeTest {
     @Test
     void compareGallonsAndLitres() {
-        Volume oneGallon = Volume.createGallon(1);
-        Volume threeAndHalfLitres = Volume.createLitres(3.78);
+        Measurement oneGallon = Measurement.createGallon(1);
+        Measurement threeAndHalfLitres = Measurement.createLitres(3.78);
 
-        Volume twoGallon = Volume.createGallon(2);
+        Measurement twoGallon = Measurement.createGallon(2);
 
         assert (oneGallon.equals(threeAndHalfLitres));
         assertFalse(twoGallon.equals(threeAndHalfLitres));
+    }
+
+    @Test
+    void addsGallonToLitres() {
+        Measurement oneGallon = Measurement.createGallon(1);
+        Measurement oneLitre = Measurement.createLitres(1);
+        assert (oneLitre.add(oneGallon).equals(Measurement.createLitres(4.78)));
     }
 }
